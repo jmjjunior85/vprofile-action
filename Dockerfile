@@ -1,8 +1,9 @@
 FROM maven:3.9.9-eclipse-temurin-11-focal AS build
+RUN apt update
 COPY ./ vprofile-project
 RUN cd vprofile-project &&  mvn install 
 
-FROM tomcat:10-jre11
+FROM tomcat:9-jre11
 LABEL "Project"="Vprofile"
 LABEL "Author"="Imran"
 RUN rm -rf /usr/local/tomcat/webapps/*
