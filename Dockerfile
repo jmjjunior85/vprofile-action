@@ -1,4 +1,4 @@
-FROM 3.9.9-eclipse-temurin-21-jammy AS build
+FROM maven:3.9.9-eclipse-temurin-21-jammy AS build
 RUN apt update
 COPY ./ vprofile-project
 RUN cd vprofile-project &&  mvn install 
